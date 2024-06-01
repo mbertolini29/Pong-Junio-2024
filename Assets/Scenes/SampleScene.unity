@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 1002186023}
   - component: {fileID: 1002186025}
   - component: {fileID: 1002186026}
+  - component: {fileID: 1002186027}
   m_Layer: 0
   m_Name: Paddle1
   m_TagString: Untagged
@@ -745,6 +746,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1002186027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002186022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b024e831ccbf25644b1c64008defb10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  isPaddle1: 1
 --- !u!1 &1123241648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1032,7 @@ GameObject:
   - component: {fileID: 1712622580}
   - component: {fileID: 1712622582}
   - component: {fileID: 1712622583}
+  - component: {fileID: 1712622584}
   m_Layer: 0
   m_Name: Paddle2
   m_TagString: Untagged
@@ -1163,6 +1179,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1712622584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712622579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b024e831ccbf25644b1c64008defb10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  isPaddle1: 0
 --- !u!1 &1988032068
 GameObject:
   m_ObjectHideFlags: 0
