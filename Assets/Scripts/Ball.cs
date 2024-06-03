@@ -30,7 +30,22 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.CompareTag("Paddle"))
         {
             ballRb.velocity *= velocityMultiplier;
+        }        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Goal1"))
+        {
+            GameManager.Instance.Paddle2Scored();
+            GameManager.Instance.Restart();
+            Launch();
         }
-        
+        else
+        {
+            GameManager.Instance.Paddle1Scored();
+            GameManager.Instance.Restart();
+            Launch();
+        }
     }
 }
