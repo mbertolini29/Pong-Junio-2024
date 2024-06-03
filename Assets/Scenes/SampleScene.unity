@@ -342,6 +342,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90766563}
   m_CullTransparentMesh: 1
+--- !u!1 &110757180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110757182}
+  - component: {fileID: 110757181}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &110757181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110757180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567d128ef18172646920b0e8d64f1ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle1ScoreText: {fileID: 90766565}
+  paddle2ScoreText: {fileID: 243528029}
+--- !u!4 &110757182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110757180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &242535071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,11 +1395,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c10c88c36f574f4fbcd4f92a9ef4f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddle1ScoreText: {fileID: 90766565}
-  paddle2ScoreText: {fileID: 243528029}
   paddle1Transform: {fileID: 1002186024}
   paddle2Transform: {fileID: 1712622581}
   ballTransform: {fileID: 319953869}
+  OnUpdatePaddle1Score:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 110757181}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: UpdatePaddle1Score
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnUpdatePaddle2Score:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 110757181}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: UpdatePaddle2Score
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1421647294
 GameObject:
   m_ObjectHideFlags: 0

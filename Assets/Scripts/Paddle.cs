@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
+    //paddle = paleta
+
     [SerializeField] private float speed = 7f;
     [SerializeField] private bool isPaddle1;
     private float yBound = 3.75f;    

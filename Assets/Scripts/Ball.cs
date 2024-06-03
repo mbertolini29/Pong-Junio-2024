@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Ball : MonoBehaviour
 {
@@ -37,13 +38,13 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Goal1"))
         {
-            GameManager.Instance.Paddle2Scored();
+            GameManager.Instance.Paddle1Score++;
             GameManager.Instance.Restart();
             Launch();
         }
         else
         {
-            GameManager.Instance.Paddle1Scored();
+            GameManager.Instance.Paddle2Score++;
             GameManager.Instance.Restart();
             Launch();
         }

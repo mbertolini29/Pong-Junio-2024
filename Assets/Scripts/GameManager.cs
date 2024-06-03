@@ -1,20 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TMP_Text paddle1ScoreText;
-    [SerializeField] private TMP_Text paddle2ScoreText;
-
     [SerializeField] private Transform paddle1Transform;
     [SerializeField] private Transform paddle2Transform;
     [SerializeField] private Transform ballTransform;
 
+    public static UnityEvent<int> OnUpdatePaddle1Score;
+    public static UnityEvent<int> OnUpdatePaddle2Score;
+
     private int paddle1Score;
     private int paddle2Score;
 
+    public int Paddle1Score
+    {
+        get => paddle1Score;
+        set
+        {
+            paddle1Score = value;
+            OnUpdatePaddle1Score?.Invoke(paddle1Score);
+        }
+    }
+
+    public int Paddle2Score
+    {
+        get => paddle2Score;
+        set
+        {
+            paddle2Score = value;
+            OnUpdatePaddle2Score?.Invoke(paddle2Score);
+        }
+    }
+
+    // Singleton
     private static GameManager instance;
 
     public static GameManager Instance
@@ -29,24 +51,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Paddle1Scored()
-    {
-        paddle1Score++;
-        paddle1ScoreText.text = paddle1Score.ToString();
-        paddle1ScoreText.text = paddle1Score.ToString();
-    }
-
-    public void Paddle2Scored()
-    {
-        paddle2Score++;
-        paddle2ScoreText.text = paddle2Score.ToString();
-        paddle2ScoreText.text = paddle2Score.ToString();
-    }
-
     public void Restart()
     {
         paddle1Transform.position = new Vector2(paddle1Transform.position.x, 0);
         paddle2Transform.position = new Vector2(paddle2Transform.position.x, 0);
         ballTransform.position = new Vector2(0, 0);
     }
+
+    public void Win()
+    {
+
+    }
+
 }
