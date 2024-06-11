@@ -38,14 +38,17 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Goal1"))
         {
-            GameManager.Instance.Paddle1Score++;
-            GameManager.Instance.Restart();
-            Launch();
+            ScoreManager.instance.Paddle1Score++;
         }
         else
         {
-            GameManager.Instance.Paddle2Score++;
-            GameManager.Instance.Restart();
+            ScoreManager.instance.Paddle2Score++;
+        }
+
+        if (!GameManager.instance.isGameOver)
+        {
+            GameManager.instance.RestartPosition();
+            //GameManager.Instance.GameOver();
             Launch();
         }
     }

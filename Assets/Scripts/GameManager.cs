@@ -1,66 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [SerializeField] private Transform paddle1Transform;
     [SerializeField] private Transform paddle2Transform;
     [SerializeField] private Transform ballTransform;
 
-    public static UnityEvent<int> OnUpdatePaddle1Score;
-    public static UnityEvent<int> OnUpdatePaddle2Score;
+    [SerializeField] GameObject gameOverScreen;
+    public bool isGameOver;
 
-    private int paddle1Score;
-    private int paddle2Score;
-
-    public int Paddle1Score
+    private void Awake()
     {
-        get => paddle1Score;
-        set
+        if (instance == null)
         {
-            paddle1Score = value;
-            OnUpdatePaddle1Score?.Invoke(paddle1Score);
+            instance = this; 
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    public int Paddle2Score
+    private void Update()
     {
-        get => paddle2Score;
-        set
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            paddle2Score = value;
-            OnUpdatePaddle2Score?.Invoke(paddle2Score);
+            //Pause();
         }
     }
 
-    // Singleton
-    private static GameManager instance;
-
-    public static GameManager Instance
+    public void GameOver(int paddleScore, int scoreToReach)
     {
-        get
+        if (paddleScore >= scoreToReach)
         {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
-            return instance;
+            StartCoroutine(CountdownRoutine());
+        }
+        else
+        {
+            RestartPosition();
         }
     }
 
-    public void Restart()
+    public void RestartPosition()
     {
         paddle1Transform.position = new Vector2(paddle1Transform.position.x, 0);
         paddle2Transform.position = new Vector2(paddle2Transform.position.x, 0);
         ballTransform.position = new Vector2(0, 0);
     }
 
-    public void Win()
+    IEnumerator CountdownRoutine()
     {
+        yield return new WaitForSeconds(0.15f); //Esperas un segundo.
 
+        isGameOver = true;
+        ShowGameOverScreen();
+    }
+
+    public void ShowGameOverScreen()
+    {
+        gameOverScreen.SetActive(true);
     }
 
 }
