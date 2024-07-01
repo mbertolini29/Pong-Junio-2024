@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float initialVelocity = 4f;
-    [SerializeField] private float velocityMultiplier = 1.1f; //en cada golpea su velocidad va aumentar un 10%
+    [SerializeField] private float velocityMultiplier = 1.15f; //en cada golpea su velocidad va aumentar un 15%
 
     //Collision Detection -> sirve para que la pelota no traspace la barra.
     //                       porque si toma mucha velocidad, puede traspazarla. 

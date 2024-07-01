@@ -26,14 +26,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //Pause();
-        }
-    }
-
     public void GameOver(int paddleScore, int scoreToReach)
     {
         if (paddleScore >= scoreToReach)
